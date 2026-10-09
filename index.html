@@ -190,6 +190,75 @@ footer b{color:#fff;font-family:"Lora",serif;font-size:18px}
   border-radius:12px;padding:14px;font-size:17px}
 .fixa.on{display:block}
 @media(min-width:900px){.fixa{display:none!important}}
+
+.so-cel{display:none}
+.so-cel-i{display:none}
+/* ================= celular ================= */
+@media(max-width:600px){
+  body{font-size:17px;line-height:1.5}
+  section{padding:38px 0}
+  h2{font-size:26px;margin-bottom:8px}
+  .sub{font-size:16px;margin-bottom:18px}
+  .wrap,.wide{padding:0 16px}
+  /* barra do topo em uma linha */
+  .topbar{padding:7px 12px;gap:8px}
+  .topbar .marca{font-size:15px;white-space:nowrap}
+  .topbar .promo{font-size:11.5px;line-height:1.2}
+  .topbar .promo br{display:none}
+  .topbar .promo #hoje{display:none}
+  .topbar a{padding:7px 12px;font-size:13px}
+  /* hero curto, botao acima da dobra */
+  .hero{padding:20px 0 30px}
+  .hero .pill{font-size:11px;padding:6px 12px}
+  .hero h1{font-size:29px;margin:12px 0 10px}
+  .hero p{font-size:16.5px;margin-bottom:10px}
+  .hero .mock{max-width:290px;margin:16px auto 0;border-radius:14px}
+  .hero .cta{margin-top:18px}
+  .so-cel{display:block}
+  .so-pc{display:none}
+  .so-cel-i{display:inline}
+  .so-pc-i{display:none}
+  .cta{font-size:18px;padding:16px 12px;margin:20px auto 6px;letter-spacing:0}
+  .cta small{font-size:12px}
+  /* listas e cartoes mais compactos */
+  .lista-x li{padding:11px 0;font-size:16.5px}
+  .virada{padding:18px;font-size:17px;margin-top:20px}
+  .card{padding:14px 16px}
+  .frase{font-size:18px;margin-top:18px}
+  .passo{display:grid;grid-template-columns:42px 1fr;column-gap:14px;align-items:center;text-align:left;padding:14px 16px}
+  .passo .n{margin:0;width:42px;height:42px;font-size:19px;grid-row:span 2}
+  .passo h3{font-size:18px;margin-bottom:2px}
+  .passo p{font-size:15.5px}
+  .nums{grid-template-columns:repeat(2,1fr);gap:10px}
+  .num{padding:14px 10px}
+  .num b{font-size:32px}
+  .num:last-child{grid-column:span 2}
+  .mods{gap:8px}
+  .mod{padding:12px 14px;gap:12px}
+  .mod .ic{flex:0 0 42px;height:42px;font-size:21px;border-radius:12px}
+  .mod h3{font-size:17px}
+  .mod p{font-size:14.5px;line-height:1.4}
+  .trilho figure{flex:0 0 88%}
+  .respeito{font-size:16px;padding:16px}
+  .quem div{padding:14px;font-size:15.5px}
+  .quem div span{font-size:26px}
+  .obj div{padding:14px 16px;font-size:16px}
+  .bono{padding:12px;gap:12px}
+  .bono img{width:78px;flex:0 0 78px}
+  .bono h3{font-size:17px}
+  .bono p{font-size:14.5px}
+  .caixa{padding:20px 16px}
+  .caixa h3{font-size:20px}
+  .caixa li{font-size:16px;padding:8px 0 8px 32px}
+  .preco .por{font-size:48px}
+  .ancora{font-size:15.5px}
+  .garantia{padding:16px;gap:14px;font-size:16px}
+  .selo{flex:0 0 78px;height:78px;font-size:13px}
+  .selo b{font-size:28px}
+  summary{padding:15px 44px 15px 16px;font-size:16px}
+  details p{padding:0 16px 15px;font-size:15.5px}
+  footer{padding:24px 16px 96px;font-size:13px}
+}
 </style>
 </head>
 <body>
@@ -205,10 +274,11 @@ footer b{color:#fff;font-family:"Lora",serif;font-size:18px}
   <div class="wrap">
     <span class="pill">Para familias, cuidadores y profesionales</span>
     <h1>La mente también se ejercita. <em>Y nunca es tarde para despertarla.</em></h1>
-    <p>Repite las mismas preguntas, se queda callado frente a la televisión, olvida lo que hizo ayer… Ya sea con alguien que quieres o con tus pacientes, duele no saber cómo ayudar.</p>
+    <p>Repite las mismas preguntas, se queda callado frente a la televisión, olvida lo que hizo ayer… <span class="so-pc-i">Ya sea con alguien que quieres o con tus pacientes, duele</span><span class="so-cel-i">Duele</span> no saber cómo ayudar.</p>
     <p class="destaque">Más de 700 actividades listas para imprimir que estimulan su memoria, su atención y sus ganas, en solo 15 minutos al día.</p>
-    <img class="mock" src="img/mockup-10-cuadernos-4x5.jpg" alt="Los 10 cuadernos de Mente Despierta" width="1080" height="1350">
-    <a class="cta" href="#oferta">QUIERO DESPERTAR SU MENTE HOY<small>Acceso inmediato · Garantía de 7 días</small></a>
+    <a class="cta so-cel" href="#oferta">QUIERO EMPEZAR HOY<small>Acceso inmediato · Garantía de 7 días</small></a>
+    <img class="mock" src="img/mockup-10-cuadernos-4x5.jpg" alt="Los 10 cuadernos de Mente Despierta" width="1080" height="1350" fetchpriority="high">
+    <a class="cta so-pc" href="#oferta">QUIERO DESPERTAR SU MENTE HOY<small>Acceso inmediato · Garantía de 7 días</small></a>
     <p class="seguro"><span class="estrelas">★★★★★</span> Material en letra grande, serio y respetuoso</p>
   </div>
 </header>
@@ -300,15 +370,15 @@ footer b{color:#fff;font-family:"Lora",serif;font-size:18px}
     <p class="sub">Material a color, con letra grande, que da gusto usar.</p>
     <div class="carrossel">
       <div class="trilho" id="trilho">
-        <figure><img src="img/pagina-01.jpg" alt="Actividad de atención" loading="lazy"><figcaption>Atención · Sopa de letras</figcaption></figure>
-        <figure><img src="img/pagina-02.jpg" alt="Actividad de memoria" loading="lazy"><figcaption>Memoria</figcaption></figure>
-        <figure><img src="img/pagina-03.jpg" alt="Actividad de lenguaje" loading="lazy"><figcaption>Lenguaje · Refranes</figcaption></figure>
-        <figure><img src="img/pagina-04.jpg" alt="Actividad de cálculo" loading="lazy"><figcaption>Cálculo · La lista del mercado</figcaption></figure>
-        <figure><img src="img/pagina-05.jpg" alt="Actividad de lógica" loading="lazy"><figcaption>Lógica</figcaption></figure>
-        <figure><img src="img/pagina-06.jpg" alt="Actividad de coordinación" loading="lazy"><figcaption>Coordinación · Une los puntos</figcaption></figure>
-        <figure><img src="img/pagina-07.jpg" alt="Actividad de orientación" loading="lazy"><figcaption>Orientación · ¿Qué hora es?</figcaption></figure>
-        <figure><img src="img/pagina-08.jpg" alt="Actividad de reminiscencia" loading="lazy"><figcaption>Reminiscencia</figcaption></figure>
-        <figure><img src="img/pagina-09.jpg" alt="Juego para recortar" loading="lazy"><figcaption>Juegos · Bingo en familia</figcaption></figure>
+        <figure><img src="img/pagina-01.jpg" alt="Actividad de atención" loading="lazy" decoding="async"><figcaption>Atención · Sopa de letras</figcaption></figure>
+        <figure><img src="img/pagina-02.jpg" alt="Actividad de memoria" loading="lazy" decoding="async"><figcaption>Memoria</figcaption></figure>
+        <figure><img src="img/pagina-03.jpg" alt="Actividad de lenguaje" loading="lazy" decoding="async"><figcaption>Lenguaje · Refranes</figcaption></figure>
+        <figure><img src="img/pagina-04.jpg" alt="Actividad de cálculo" loading="lazy" decoding="async"><figcaption>Cálculo · La lista del mercado</figcaption></figure>
+        <figure><img src="img/pagina-05.jpg" alt="Actividad de lógica" loading="lazy" decoding="async"><figcaption>Lógica</figcaption></figure>
+        <figure><img src="img/pagina-06.jpg" alt="Actividad de coordinación" loading="lazy" decoding="async"><figcaption>Coordinación · Une los puntos</figcaption></figure>
+        <figure><img src="img/pagina-07.jpg" alt="Actividad de orientación" loading="lazy" decoding="async"><figcaption>Orientación · ¿Qué hora es?</figcaption></figure>
+        <figure><img src="img/pagina-08.jpg" alt="Actividad de reminiscencia" loading="lazy" decoding="async"><figcaption>Reminiscencia</figcaption></figure>
+        <figure><img src="img/pagina-09.jpg" alt="Juego para recortar" loading="lazy" decoding="async"><figcaption>Juegos · Bingo en familia</figcaption></figure>
       </div>
       <div class="setas"><button type="button" id="ant" aria-label="Anterior">‹</button><span id="pos">1 / 9</span><button type="button" id="sig" aria-label="Siguiente">›</button></div>
     </div>
@@ -327,7 +397,7 @@ footer b{color:#fff;font-family:"Lora",serif;font-size:18px}
       <div><span>🧑‍⚕️</span>Terapeutas ocupacionales</div>
       <div><span>🏠</span>Centros de día y talleres</div>
     </div>
-    <img class="cena" src="img/escena-10.jpg" alt="Hija y madre leyendo juntas" loading="lazy">
+    <img class="cena" src="img/escena-10.jpg" alt="Hija y madre leyendo juntas" loading="lazy" decoding="async">
   </div>
 </section>
 
@@ -350,11 +420,11 @@ footer b{color:#fff;font-family:"Lora",serif;font-size:18px}
     <p class="center"><span class="pill">Bonos de regalo</span></p>
     <h2 style="margin-top:12px">Además, te llevas esto gratis</h2>
     <p class="sub">5 bonos para acompañar mejor, todos los días.</p>
-    <div class="bono"><img src="img/bono-1.jpg" alt="Guía del Acompañante" loading="lazy"><div><h3>Guía del Acompañante</h3><p>Cómo acompañar con confianza y cariño, sin frustrar y sin que se sienta un niño.</p><div class="val"><s>Vale US$ 17</s> · <b>HOY GRATIS</b></div></div></div>
-    <div class="bono"><img src="img/bono-2.jpg" alt="Recetas Sencillas" loading="lazy"><div><h3>Recetas Sencillas</h3><p>16 recetas fáciles y caseras para preparar en compañía.</p><div class="val"><s>Vale US$ 15</s> · <b>HOY GRATIS</b></div></div></div>
-    <div class="bono"><img src="img/bono-3.jpg" alt="Tarjetas para Conversar" loading="lazy"><div><h3>Tarjetas para Conversar</h3><p>60 tarjetas con preguntas para despertar recuerdos y conversar en familia.</p><div class="val"><s>Vale US$ 15</s> · <b>HOY GRATIS</b></div></div></div>
-    <div class="bono"><img src="img/bono-4.jpg" alt="Gimnasia en la Silla" loading="lazy"><div><h3>Gimnasia en la Silla</h3><p>15 movimientos suaves para activar el cuerpo, sentado y paso a paso.</p><div class="val"><s>Vale US$ 17</s> · <b>HOY GRATIS</b></div></div></div>
-    <div class="bono"><img src="img/bono-5.jpg" alt="Bitácora de 15 Minutos" loading="lazy"><div><h3>Bitácora de 15 Minutos</h3><p>Planificador de 12 semanas para crear la rutina y ver cómo avanza.</p><div class="val"><s>Vale US$ 14</s> · <b>HOY GRATIS</b></div></div></div>
+    <div class="bono"><img src="img/bono-1.jpg" alt="Guía del Acompañante" loading="lazy" decoding="async"><div><h3>Guía del Acompañante</h3><p>Cómo acompañar con confianza y cariño, sin frustrar y sin que se sienta un niño.</p><div class="val"><s>Vale US$ 17</s> · <b>HOY GRATIS</b></div></div></div>
+    <div class="bono"><img src="img/bono-2.jpg" alt="Recetas Sencillas" loading="lazy" decoding="async"><div><h3>Recetas Sencillas</h3><p>16 recetas fáciles y caseras para preparar en compañía.</p><div class="val"><s>Vale US$ 15</s> · <b>HOY GRATIS</b></div></div></div>
+    <div class="bono"><img src="img/bono-3.jpg" alt="Tarjetas para Conversar" loading="lazy" decoding="async"><div><h3>Tarjetas para Conversar</h3><p>60 tarjetas con preguntas para despertar recuerdos y conversar en familia.</p><div class="val"><s>Vale US$ 15</s> · <b>HOY GRATIS</b></div></div></div>
+    <div class="bono"><img src="img/bono-4.jpg" alt="Gimnasia en la Silla" loading="lazy" decoding="async"><div><h3>Gimnasia en la Silla</h3><p>15 movimientos suaves para activar el cuerpo, sentado y paso a paso.</p><div class="val"><s>Vale US$ 17</s> · <b>HOY GRATIS</b></div></div></div>
+    <div class="bono"><img src="img/bono-5.jpg" alt="Bitácora de 15 Minutos" loading="lazy" decoding="async"><div><h3>Bitácora de 15 Minutos</h3><p>Planificador de 12 semanas para crear la rutina y ver cómo avanza.</p><div class="val"><s>Vale US$ 14</s> · <b>HOY GRATIS</b></div></div></div>
     <p class="frase">Cada tarde que comparten hoy es un recuerdo que queda para siempre.</p>
   </div>
 </section>
@@ -401,7 +471,6 @@ footer b{color:#fff;font-family:"Lora",serif;font-size:18px}
 <section class="imagina">
   <div class="wrap">
     <h2>Preguntas frecuentes</h2>
-    <p class="sub">&nbsp;</p>
     <details><summary>¿Cómo recibo el material?</summary><p>Apenas se confirma el pago, recibes un email con el acceso. Los cuadernos son archivos PDF que puedes descargar, imprimir o usar en la pantalla.</p></details>
     <details><summary>¿Necesito ser profesional para usarlo?</summary><p>No. Cada actividad trae una instrucción simple y viene una guía para el acompañante. Lo usan familias, cuidadores y profesionales.</p></details>
     <details><summary>¿No es muy infantil?</summary><p>No. Es un material para adultos: letra grande, temas de su época, ilustraciones respetuosas y actividades pensadas para personas mayores.</p></details>
