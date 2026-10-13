@@ -197,6 +197,13 @@ footer b{color:#fff;font-family:"Lora",serif;font-size:18px}
 .semana li:last-child{border-bottom:0}
 .semana b{flex:0 0 92px;color:var(--terra)}
 .semana .nota{text-align:center;font-size:14px;color:var(--suave);margin-top:10px}
+/* vsl */
+.vsl-t{text-align:center;font-weight:900;margin:18px 0 0;font-size:17px}
+.vsl{position:relative;max-width:340px;margin:10px auto 0;border-radius:18px;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.25);background:#000}
+.vsl video{width:100%;display:block;aspect-ratio:9/16;background:#000}
+.vsl .som{position:absolute;left:50%;top:58%;transform:translate(-50%,-50%);background:rgba(20,20,20,.85);color:#fff;border:3px solid #ffd60a;
+  border-radius:99px;padding:12px 20px;font:800 16px "Nunito",system-ui,sans-serif;cursor:pointer;white-space:nowrap}
+@media(max-width:600px){.vsl{max-width:290px}}
 /* depoimentos */
 .social{background:var(--crema);padding:34px 0}
 .social .kick{display:block;text-align:center;font-weight:900;font-size:13px;letter-spacing:1.5px;color:var(--terra)}
@@ -296,9 +303,12 @@ footer b{color:#fff;font-family:"Lora",serif;font-size:18px}
     <h1>La mente también se ejercita. <em>Y nunca es tarde para despertarla.</em></h1>
     <p>Repite las mismas preguntas, se queda callado frente a la televisión, olvida lo que hizo ayer… <span class="so-pc-i">Ya sea con alguien que quieres o con tus pacientes, duele</span><span class="so-cel-i">Duele</span> no saber cómo ayudar.</p>
     <p class="destaque">Más de 700 actividades listas para imprimir que estimulan su memoria, su atención y sus ganas, en solo 15 minutos al día.</p>
-    <a class="cta so-cel" href="#oferta">QUIERO EMPEZAR HOY<small>Acceso inmediato · Garantía de 7 días</small></a>
-    <img class="mock" src="img/mockup-10-cuadernos-4x5.jpg" alt="Los 10 cuadernos de Mente Despierta" width="1080" height="1350" fetchpriority="high">
-    <a class="cta so-pc" href="#oferta">QUIERO DESPERTAR SU MENTE HOY<small>Acceso inmediato · Garantía de 7 días</small></a>
+    <p class="vsl-t">▶ Mira este video antes de empezar 👇</p>
+    <div class="vsl">
+      <video id="vsl" src="vsl/vsl-mx.mp4" poster="vsl/capa.jpg" playsinline autoplay muted loop preload="metadata"></video>
+      <button class="som" id="som" type="button">🔊 Toca para activar el sonido</button>
+    </div>
+    <a class="cta" href="#oferta">QUIERO DESPERTAR SU MENTE HOY<small>Acceso inmediato · Garantía de 7 días</small></a>
     <p class="seguro"><span class="estrelas">★★★★★</span> Material en letra grande, serio y respetuoso</p>
     <p class="digital">📥 Acceso inmediato: imprime las hojas que quieras, cuantas veces quieras.</p>
   </div>
@@ -586,6 +596,17 @@ footer b{color:#fff;font-family:"Lora",serif;font-size:18px}
     Object.keys(guard).forEach(function(k){u.searchParams.set(k,guard[k])});
     a.href=u.toString();
   });
+})();
+</script>
+<script>
+(function(){
+  var v=document.getElementById("vsl"), b=document.getElementById("som");
+  var langs=(navigator.languages||[navigator.language||""]).join(",");
+  if(/es-ES/i.test(langs)){v.src="vsl/vsl-es.mp4";}          // voz da Espanha para quem esta na Espanha
+  function ligar(){v.muted=false;v.loop=false;v.currentTime=0;v.controls=true;v.play();b.style.display="none";
+    if(window.fbq){fbq("trackCustom","VSLSonido");}}
+  b.addEventListener("click",ligar);
+  v.addEventListener("click",function(){if(v.muted){ligar();}});
 })();
 </script>
 </body>
