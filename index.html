@@ -313,7 +313,7 @@ footer b{color:#fff;font-family:"Lora",serif;font-size:18px}
     <p class="destaque">Más de 700 actividades listas para imprimir que estimulan su memoria, su atención y sus ganas, en solo 15 minutos al día.</p>
     <p class="vsl-t">▶ Mira este video antes de empezar 👇</p>
     <div class="vsl">
-      <video id="vsl" src="vsl/vsl-mx.mp4" poster="vsl/capa.jpg" playsinline autoplay muted loop preload="metadata"></video>
+      <video id="vsl" src="vsl/vsl-mx.mp4" poster="vsl/capa.jpg" playsinline autoplay muted loop preload="metadata" controlslist="nodownload noremoteplayback noplaybackrate" disablepictureinpicture disableremoteplayback oncontextmenu="return false"></video>
       <button class="som" id="som" type="button">🔊 Toca para activar el sonido</button>
     </div>
     <a class="cta" href="#oferta">QUIERO DESPERTAR SU MENTE HOY<small>Acceso inmediato · Garantía de 7 días</small></a>
@@ -626,6 +626,8 @@ footer b{color:#fff;font-family:"Lora",serif;font-size:18px}
   function ligar(){v.muted=false;v.loop=false;v.currentTime=0;v.controls=true;v.play();b.style.display="none";
     if(window.fbq){fbq("trackCustom","VSLSonido");}}
   b.addEventListener("click",ligar);
+  v.parentNode.addEventListener("contextmenu",function(e){e.preventDefault();});
+  v.addEventListener("dragstart",function(e){e.preventDefault();});
   v.addEventListener("click",function(){if(v.muted){ligar();}});
 })();
 </script>
