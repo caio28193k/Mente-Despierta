@@ -189,6 +189,18 @@ footer b{color:#fff;font-family:"Lora",serif;font-size:18px}
 .fixa a{display:block;background:var(--mostaza);color:var(--verde2);text-align:center;font-weight:900;text-decoration:none;
   border-radius:12px;padding:14px;font-size:17px}
 .fixa.on{display:block}
+/* depoimentos */
+.social{background:var(--crema);padding:34px 0}
+.social .kick{display:block;text-align:center;font-weight:900;font-size:13px;letter-spacing:1.5px;color:var(--terra)}
+.social h2{text-align:center;margin:6px 0 4px}
+.social .sub{text-align:center;color:var(--suave);margin-bottom:18px}
+.depo{display:grid;gap:14px}
+.depo .card{background:#fff;border-radius:18px;padding:18px;box-shadow:0 4px 14px rgba(0,0,0,.07)}
+.depo .stars{color:var(--mostaza);letter-spacing:2px}
+.depo .txt{margin:8px 0 10px;font-weight:600;color:var(--texto);line-height:1.5}
+.depo .who{font-weight:800;color:var(--terra2)}
+.depo .role{color:var(--suave);font-size:14px}
+@media(min-width:900px){.depo{grid-template-columns:repeat(3,1fr)}}
 @media(min-width:900px){.fixa{display:none!important}}
 
 .so-cel{display:none}
@@ -282,6 +294,20 @@ footer b{color:#fff;font-family:"Lora",serif;font-size:18px}
     <p class="seguro"><span class="estrelas">★★★★★</span> Material en letra grande, serio y respetuoso</p>
   </div>
 </header>
+
+<!-- DEPOIMENTOS -->
+<section class="social">
+  <div class="wrap">
+    <span class="kick">LO QUE DICEN LAS FAMILIAS</span>
+    <h2>No estás sola en esto</h2>
+    <p class="sub">Familias y cuidadores que ya lo usan en casa.</p>
+    <div class="depo">
+      <div class="card"><div class="stars">★★★★★</div><p class="txt">“Mi mamá se cansa de escribir, así que en las actividades de recuerdos ella me cuenta y yo anoto. Me gustó que pudiera participar de esa manera, sin tener que completar todo sola.”</p><div class="who">Ana Lucía Herrera</div><div class="role">🇨🇴 Hija · Colombia</div></div>
+      <div class="card"><div class="stars">★★★★★</div><p class="txt">“Lo compré porque ya no sabía qué actividades proponerle a mi mamá. Empezamos con los refranes y terminamos hablando de las cosas que decía mi abuela. Fue un rato muy bonito.”</p><div class="who">María Fernanda López</div><div class="role">🇲🇽 Hija · México</div></div>
+      <div class="card"><div class="stars">★★★★★</div><p class="txt">“Trabajo como cuidadora y me resulta práctico tener actividades listas. No uso las mismas con todas las personas. Voy eligiendo según sus gustos y las ganas que tengan ese día.”</p><div class="who">Lucía Fernández</div><div class="role">🇪🇸 Cuidadora · España</div></div>
+    </div>
+  </div>
+</section>
 
 <!-- DORES -->
 <section class="dores">
