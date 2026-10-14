@@ -203,6 +203,10 @@ footer b{color:#fff;font-family:"Lora",serif;font-size:18px}
 .vsl video{width:100%;display:block;aspect-ratio:9/16;background:#000}
 .vsl .som{position:absolute;left:50%;top:58%;transform:translate(-50%,-50%);background:rgba(20,20,20,.85);color:#fff;border:3px solid #ffd60a;
   border-radius:99px;padding:12px 20px;font:800 16px "Nunito",system-ui,sans-serif;cursor:pointer;white-space:nowrap}
+.vsl .barra{position:absolute;left:0;right:0;bottom:0;height:7px;background:rgba(255,255,255,.25);display:none}
+.vsl .barra i{display:block;height:100%;width:0;background:#ffd60a;transition:width .3s linear}
+.vsl .pausa{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:86px;height:86px;border-radius:50%;
+  background:rgba(20,20,20,.78);border:3px solid #ffd60a;color:#fff;font-size:34px;line-height:1;cursor:pointer;display:none}
 @media(max-width:600px){.vsl{max-width:290px}}
 /* dia a dia */
 .dia{background:var(--verde2);color:#fff;padding:34px 0}
@@ -315,6 +319,8 @@ footer b{color:#fff;font-family:"Lora",serif;font-size:18px}
     <div class="vsl">
       <video id="vsl" src="vsl/vsl-mx.mp4" poster="vsl/capa.jpg" playsinline autoplay muted loop preload="metadata" controlslist="nodownload noremoteplayback noplaybackrate" disablepictureinpicture disableremoteplayback oncontextmenu="return false"></video>
       <button class="som" id="som" type="button">🔊 Toca para activar el sonido</button>
+      <button class="pausa" id="vpausa" type="button" aria-label="Reproducir">▶</button>
+      <div class="barra"><i id="vbarra"></i></div>
     </div>
     <a class="cta" href="#oferta">QUIERO DESPERTAR SU MENTE HOY<small>Acceso inmediato · Garantía de 7 días</small></a>
     <p class="seguro"><span class="estrelas">★★★★★</span> Material en letra grande, serio y respetuoso</p>
@@ -623,12 +629,27 @@ footer b{color:#fff;font-family:"Lora",serif;font-size:18px}
   var v=document.getElementById("vsl"), b=document.getElementById("som");
   var langs=(navigator.languages||[navigator.language||""]).join(",");
   if(/es-ES/i.test(langs)){v.src="vsl/vsl-es.mp4";}          // voz da Espanha para quem esta na Espanha
-  function ligar(){v.muted=false;v.loop=false;v.currentTime=0;v.controls=true;v.play();b.style.display="none";
+  var pa=document.getElementById("vpausa"), br=document.getElementById("vbarra");
+  // player sem controles nativos: nao mostra tempo nem duracao. A barra corre rapido no inicio e desacelera no fim.
+  function ligar(){v.muted=false;v.loop=false;v.currentTime=0;v.play();b.style.display="none";
+    br.parentNode.style.display="block";
     if(window.fbq){fbq("trackCustom","VSLSonido");}}
+  function alterna(){
+    if(v.muted){ligar();return;}
+    if(v.paused||v.ended){if(v.ended){v.currentTime=0;}v.play();pa.style.display="none";}
+    else{v.pause();pa.textContent="▶";pa.style.display="block";}
+  }
+  v.addEventListener("timeupdate",function(){
+    if(v.muted||!v.duration){return;}
+    var x=Math.min(1,v.currentTime/v.duration);
+    br.style.width=(100*(1-Math.pow(1-x,2)))+"%";
+  });
+  v.addEventListener("ended",function(){pa.textContent="↻";pa.style.display="block";});
   b.addEventListener("click",ligar);
+  pa.addEventListener("click",alterna);
   v.parentNode.addEventListener("contextmenu",function(e){e.preventDefault();});
   v.addEventListener("dragstart",function(e){e.preventDefault();});
-  v.addEventListener("click",function(){if(v.muted){ligar();}});
+  v.addEventListener("click",alterna);
 })();
 </script>
 </body>
