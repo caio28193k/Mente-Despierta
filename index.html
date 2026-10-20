@@ -506,7 +506,7 @@ footer b{color:#fff;font-family:"Lora",serif;font-size:18px}
   <div class="wrap">
     <h2>Todo lo que te llevas hoy</h2>
     <div class="timer">⏳ La oferta termina en <span class="t" id="timer">15:00</span></div>
-    <p class="ancora">Armar este material por tu cuenta: semanas de trabajo. <b>Valor real: US$ 78.</b><br>Hoy lo llevas por menos que una salida a cenar.</p>
+    <p class="ancora">Armar este material por tu cuenta: semanas de trabajo. <b>Valor real: <span id="valor-real">US$ 78</span>.</b><br>Hoy lo llevas por menos que una salida a cenar.</p>
     <div class="caixa">
       <h3>Mente Despierta · Colección Completa</h3>
       <ul>
@@ -519,7 +519,7 @@ footer b{color:#fff;font-family:"Lora",serif;font-size:18px}
         <li>Acceso inmediato y para siempre</li>
       </ul>
       <div class="preco">
-        <div class="de">Antes: <s>US$ 78</s></div>
+        <div class="de">Antes: <s id="preco-antes">US$ 78</s></div>
         <div class="por" id="preco"><small>US$</small> 12,90</div>
         <span class="eco">Ahorras más del 80%</span>
         <p class="moeda" id="moeda">Pago único. Se cobra en la moneda de tu país.</p>
@@ -593,14 +593,17 @@ footer b{color:#fff;font-family:"Lora",serif;font-size:18px}
   else if(tz==="America/Bogota")pais="CO";
   else if(tz==="America/Lima")pais="PE";
   else if(/^(America\/(Santiago|Punta_Arenas)|Pacific\/Easter)$/.test(tz))pais="CL";
-  var P={MX:["$292","MXN","IVA incluido. Pago único, en pesos mexicanos."],
-         CO:["$43.170","COP","Pago único, en pesos colombianos."],
-         PE:["S/ 47","","Pago único, en soles."],
-         CL:["$13.272","CLP","IVA incluido. Pago único, en pesos chilenos."]}[pais];
+  // [preco, moeda, linha, "antes"]; o "antes" sao os US$ 78 convertidos pela mesma taxa do checkout (com o IVA, onde ha)
+  var P={MX:["$292","MXN","IVA incluido. Pago único, en pesos mexicanos.","$1,767"],
+         CO:["$43.170","COP","Pago único, en pesos colombianos.","$261.030"],
+         PE:["S/ 47","","Pago único, en soles.","S/ 284"],
+         CL:["$13.272","CLP","IVA incluido. Pago único, en pesos chilenos.","$80.250"]}[pais];
   if(!P)return;
   document.getElementById("preco").innerHTML=P[0]+(P[1]?" <small>"+P[1]+"</small>":"");
   document.getElementById("moeda").textContent=P[2];
   document.getElementById("preco-fixa").textContent=P[0]+(P[1]?" "+P[1]:"");
+  document.getElementById("preco-antes").textContent=P[3]+(P[1]?" "+P[1]:"");
+  document.getElementById("valor-real").textContent=P[3]+(P[1]?" "+P[1]:"");
 })();
 // contador de 15 minutos (reinicia a cada visita)
 (function(){
