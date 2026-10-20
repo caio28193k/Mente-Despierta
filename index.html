@@ -492,11 +492,11 @@ footer b{color:#fff;font-family:"Lora",serif;font-size:18px}
     <p class="center"><span class="pill">Bonos de regalo</span></p>
     <h2 style="margin-top:12px">Además, te llevas esto gratis</h2>
     <p class="sub">5 bonos para acompañar mejor, todos los días.</p>
-    <div class="bono"><img src="img/bono-1.jpg" alt="Guía del Acompañante" loading="lazy" decoding="async"><div><h3>Guía del Acompañante</h3><p>Para ti, que acompañas: cómo presentar cada actividad, qué frases ayudan y cuáles evitar, qué hacer si se frustra y cómo cuidarte tú también.</p><div class="val"><s>Vale US$ 17</s> · <b>HOY GRATIS</b></div></div></div>
-    <div class="bono"><img src="img/bono-2.jpg" alt="Recetas Sencillas" loading="lazy" decoding="async"><div><h3>Recetas Sencillas</h3><p>16 recetas fáciles y caseras para preparar en compañía.</p><div class="val"><s>Vale US$ 15</s> · <b>HOY GRATIS</b></div></div></div>
-    <div class="bono"><img src="img/bono-3.jpg" alt="Tarjetas para Conversar" loading="lazy" decoding="async"><div><h3>Tarjetas para Conversar</h3><p>60 tarjetas con preguntas para despertar recuerdos y conversar en familia.</p><div class="val"><s>Vale US$ 15</s> · <b>HOY GRATIS</b></div></div></div>
-    <div class="bono"><img src="img/bono-4.jpg" alt="Gimnasia en la Silla" loading="lazy" decoding="async"><div><h3>Gimnasia en la Silla</h3><p>15 movimientos suaves para activar el cuerpo, sentado y paso a paso.</p><div class="val"><s>Vale US$ 17</s> · <b>HOY GRATIS</b></div></div></div>
-    <div class="bono"><img src="img/bono-5.jpg" alt="Bitácora de 15 Minutos" loading="lazy" decoding="async"><div><h3>Bitácora de 15 Minutos</h3><p>Planificador de 12 semanas para crear la rutina y ver cómo avanza.</p><div class="val"><s>Vale US$ 14</s> · <b>HOY GRATIS</b></div></div></div>
+    <div class="bono"><img src="img/bono-1.jpg" alt="Guía del Acompañante" loading="lazy" decoding="async"><div><h3>Guía del Acompañante</h3><p>Para ti, que acompañas: cómo presentar cada actividad, qué frases ayudan y cuáles evitar, qué hacer si se frustra y cómo cuidarte tú también.</p><div class="val"><s>Vale <span data-usd="17">US$ 17</span></s> · <b>HOY GRATIS</b></div></div></div>
+    <div class="bono"><img src="img/bono-2.jpg" alt="Recetas Sencillas" loading="lazy" decoding="async"><div><h3>Recetas Sencillas</h3><p>16 recetas fáciles y caseras para preparar en compañía.</p><div class="val"><s>Vale <span data-usd="15">US$ 15</span></s> · <b>HOY GRATIS</b></div></div></div>
+    <div class="bono"><img src="img/bono-3.jpg" alt="Tarjetas para Conversar" loading="lazy" decoding="async"><div><h3>Tarjetas para Conversar</h3><p>60 tarjetas con preguntas para despertar recuerdos y conversar en familia.</p><div class="val"><s>Vale <span data-usd="15">US$ 15</span></s> · <b>HOY GRATIS</b></div></div></div>
+    <div class="bono"><img src="img/bono-4.jpg" alt="Gimnasia en la Silla" loading="lazy" decoding="async"><div><h3>Gimnasia en la Silla</h3><p>15 movimientos suaves para activar el cuerpo, sentado y paso a paso.</p><div class="val"><s>Vale <span data-usd="17">US$ 17</span></s> · <b>HOY GRATIS</b></div></div></div>
+    <div class="bono"><img src="img/bono-5.jpg" alt="Bitácora de 15 Minutos" loading="lazy" decoding="async"><div><h3>Bitácora de 15 Minutos</h3><p>Planificador de 12 semanas para crear la rutina y ver cómo avanza.</p><div class="val"><s>Vale <span data-usd="14">US$ 14</span></s> · <b>HOY GRATIS</b></div></div></div>
     <p class="frase">Cada tarde que comparten hoy es un recuerdo que queda para siempre.</p>
   </div>
 </section>
@@ -506,7 +506,7 @@ footer b{color:#fff;font-family:"Lora",serif;font-size:18px}
   <div class="wrap">
     <h2>Todo lo que te llevas hoy</h2>
     <div class="timer">⏳ La oferta termina en <span class="t" id="timer">15:00</span></div>
-    <p class="ancora">Armar este material por tu cuenta: semanas de trabajo. <b>Valor real: <span id="valor-real">US$ 78</span>.</b><br>Hoy lo llevas por menos que una salida a cenar.</p>
+    <p class="ancora">Armar este material por tu cuenta: semanas de trabajo. <b>Valor real: <span id="valor-real" data-usd="78">US$ 78</span>.</b><br>Hoy lo llevas por menos que una salida a cenar.</p>
     <div class="caixa">
       <h3>Mente Despierta · Colección Completa</h3>
       <ul>
@@ -519,7 +519,7 @@ footer b{color:#fff;font-family:"Lora",serif;font-size:18px}
         <li>Acceso inmediato y para siempre</li>
       </ul>
       <div class="preco">
-        <div class="de">Antes: <s id="preco-antes">US$ 78</s></div>
+        <div class="de">Antes: <s id="preco-antes" data-usd="78">US$ 78</s></div>
         <div class="por" id="preco"><small>US$</small> 12,90</div>
         <span class="eco">Ahorras más del 80%</span>
         <p class="moeda" id="moeda">Pago único. Se cobra en la moneda de tu país.</p>
@@ -585,25 +585,33 @@ footer b{color:#fff;font-family:"Lora",serif;font-size:18px}
   document.getElementById("hoje").textContent=dias[d.getDay()]+" "+d.getDate()+"/"+(d.getMonth()+1);
   document.getElementById("ano").textContent=d.getFullYear();
 })();
-// preco na moeda do pais (totais conferidos no checkout da Hotmart em 20/10/2026, com o preco base de US$ 12,90;
-// no Mexico e no Chile o IVA entra por cima). O pais vem do fuso horario do navegador; fora destes 4, fica em dolar.
-(function(){
+// preco principal: o total exato que o checkout de cada pais mostrou (o resto dos valores usa a conversao abaixo)
+// valores em dolar (elementos com data-usd) convertidos para a moeda do pais, pela mesma taxa que o checkout
+// da Hotmart usou em 20/10/2026 (com o IVA no Mexico e no Chile). O pais vem do fuso horario do navegador.
+var PAIS=(function(){
   var tz=(Intl.DateTimeFormat().resolvedOptions().timeZone)||"", pais="";
   if(/^America\/(Mexico_City|Cancun|Merida|Monterrey|Matamoros|Chihuahua|Ciudad_Juarez|Ojinaga|Mazatlan|Bahia_Banderas|Hermosillo|Tijuana)$/.test(tz))pais="MX";
   else if(tz==="America/Bogota")pais="CO";
   else if(tz==="America/Lima")pais="PE";
   else if(/^(America\/(Santiago|Punta_Arenas)|Pacific\/Easter)$/.test(tz))pais="CL";
-  // [preco, moeda, linha, "antes"]; o "antes" sao os US$ 78 convertidos pela mesma taxa do checkout (com o IVA, onde ha)
-  var P={MX:["$292","MXN","IVA incluido. Pago único, en pesos mexicanos.","$1,767"],
-         CO:["$43.170","COP","Pago único, en pesos colombianos.","$261.030"],
-         PE:["S/ 47","","Pago único, en soles.","S/ 284"],
-         CL:["$13.272","CLP","IVA incluido. Pago único, en pesos chilenos.","$80.250"]}[pais];
+  var T={MX:[22.66,1,function(n){return "$"+n.toLocaleString("en-US")+" MXN";}],
+         CO:[3346.5,10,function(n){return "$"+n.toLocaleString("es-CO")+" COP";}],
+         PE:[3.6434,1,function(n){return "S/ "+n;}],
+         CL:[1028.8,10,function(n){return "$"+n.toLocaleString("es-CL")+" CLP";}]}[pais];
+  if(T)document.querySelectorAll("[data-usd]").forEach(function(el){
+    el.textContent=T[2](Math.round(parseFloat(el.getAttribute("data-usd"))*T[0]/T[1])*T[1]);
+  });
+  return pais;
+})();
+(function(){
+  var P={MX:["$292","MXN","IVA incluido. Pago único, en pesos mexicanos."],
+         CO:["$43.170","COP","Pago único, en pesos colombianos."],
+         PE:["S/ 47","","Pago único, en soles."],
+         CL:["$13.272","CLP","IVA incluido. Pago único, en pesos chilenos."]}[PAIS];
   if(!P)return;
   document.getElementById("preco").innerHTML=P[0]+(P[1]?" <small>"+P[1]+"</small>":"");
   document.getElementById("moeda").textContent=P[2];
   document.getElementById("preco-fixa").textContent=P[0]+(P[1]?" "+P[1]:"");
-  document.getElementById("preco-antes").textContent=P[3]+(P[1]?" "+P[1]:"");
-  document.getElementById("valor-real").textContent=P[3]+(P[1]?" "+P[1]:"");
 })();
 // contador de 15 minutos (reinicia a cada visita)
 (function(){

@@ -98,9 +98,9 @@ footer b{color:#fff;font-family:"Lora",serif;font-size:16px}
       <li><span>🎨</span><b>60 Mandalas</b> · para colorear con calma</li>
     </ul>
     <div class="preco">
-      <span class="de">Por separado: <s>US$ 16,60</s></span>
-      <div class="por"><small>US$</small> 9,90</div>
-      <span class="eco">Ahorras US$ 6,70</span>
+      <span class="de">Por separado: <s data-usd="16.60">US$ 16,60</s></span>
+      <div class="por"><span data-usd="9.90"><small>US$</small> 9,90</span></div>
+      <span class="eco">Ahorras <span data-usd="6.70">US$ 6,70</span></span>
     </div>
     <p class="timer">⏳ Esta oferta desaparece en <b id="timer">10:00</b></p>
     <p class="unico">Un solo clic: se agrega a tu compra sin volver a escribir tus datos.</p>
@@ -143,6 +143,23 @@ footer b{color:#fff;font-family:"Lora",serif;font-size:16px}
 </footer>
 
 <script>
+// valores em dolar (elementos com data-usd) convertidos para a moeda do pais, pela mesma taxa que o checkout
+// da Hotmart usou em 20/10/2026 (com o IVA no Mexico e no Chile). O pais vem do fuso horario do navegador.
+var PAIS=(function(){
+  var tz=(Intl.DateTimeFormat().resolvedOptions().timeZone)||"", pais="";
+  if(/^America\/(Mexico_City|Cancun|Merida|Monterrey|Matamoros|Chihuahua|Ciudad_Juarez|Ojinaga|Mazatlan|Bahia_Banderas|Hermosillo|Tijuana)$/.test(tz))pais="MX";
+  else if(tz==="America/Bogota")pais="CO";
+  else if(tz==="America/Lima")pais="PE";
+  else if(/^(America\/(Santiago|Punta_Arenas)|Pacific\/Easter)$/.test(tz))pais="CL";
+  var T={MX:[22.66,1,function(n){return "$"+n.toLocaleString("en-US")+" MXN";}],
+         CO:[3346.5,10,function(n){return "$"+n.toLocaleString("es-CO")+" COP";}],
+         PE:[3.6434,1,function(n){return "S/ "+n;}],
+         CL:[1028.8,10,function(n){return "$"+n.toLocaleString("es-CL")+" CLP";}]}[pais];
+  if(T)document.querySelectorAll("[data-usd]").forEach(function(el){
+    el.textContent=T[2](Math.round(parseFloat(el.getAttribute("data-usd"))*T[0]/T[1])*T[1]);
+  });
+  return pais;
+})();
 (function(){var fim=Date.now()+10*60*1000,el=document.getElementById("timer");
 setInterval(function(){var s=Math.max(0,Math.round((fim-Date.now())/1000));
 el.textContent=String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0");},1000);})();
