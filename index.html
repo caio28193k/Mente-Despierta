@@ -20,10 +20,10 @@ t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
 document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init','1769427017512675');
 fbq('track','PageView');
-fbq('track','ViewContent',{content_name:'Mente Despierta',content_type:'product',value:15.00,currency:'USD'});
+fbq('track','ViewContent',{content_name:'Mente Despierta',content_type:'product',value:12.90,currency:'USD'});
 document.addEventListener('click',function(ev){
   var a=ev.target.closest&&ev.target.closest('a[href*="pay.hotmart.com"]');
-  if(a){fbq('track','InitiateCheckout',{content_name:'Mente Despierta',value:15.00,currency:'USD'});}
+  if(a){fbq('track','InitiateCheckout',{content_name:'Mente Despierta',value:12.90,currency:'USD'});}
 });
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1769427017512675&ev=PageView&noscript=1"/></noscript>
@@ -520,9 +520,9 @@ footer b{color:#fff;font-family:"Lora",serif;font-size:18px}
       </ul>
       <div class="preco">
         <div class="de">Antes: <s>US$ 78</s></div>
-        <div class="por"><small>US$</small> 15</div>
-        <span class="eco">Ahorras US$ 63</span>
-        <p class="moeda">Pago único. Se cobra en la moneda de tu país.</p>
+        <div class="por" id="preco"><small>US$</small> 12,90</div>
+        <span class="eco">Ahorras más del 80%</span>
+        <p class="moeda" id="moeda">Pago único. Se cobra en la moneda de tu país.</p>
       </div>
       <a class="cta" href="https://pay.hotmart.com/Y107957959Q?checkoutMode=10">QUIERO AYUDARLO HOY<small>Acceso inmediato por email</small></a>
       <p class="seguro">🔒 Compra 100% segura · Garantía de 7 días</p>
@@ -576,7 +576,7 @@ footer b{color:#fff;font-family:"Lora",serif;font-size:18px}
   © <span id="ano"></span> Mente Despierta. Todos los derechos reservados.
 </footer>
 
-<div class="fixa" id="fixa"><a href="#oferta">QUIERO MENTE DESPIERTA · US$ 15</a></div>
+<div class="fixa" id="fixa"><a href="#oferta">QUIERO MENTE DESPIERTA · <span id="preco-fixa">US$ 12,90</span></a></div>
 
 <script>
 // data de hoje e ano
@@ -584,6 +584,23 @@ footer b{color:#fff;font-family:"Lora",serif;font-size:18px}
   var d=new Date(), dias=["domingo","lunes","martes","miércoles","jueves","viernes","sábado"];
   document.getElementById("hoje").textContent=dias[d.getDay()]+" "+d.getDate()+"/"+(d.getMonth()+1);
   document.getElementById("ano").textContent=d.getFullYear();
+})();
+// preco na moeda do pais (totais conferidos no checkout da Hotmart em 20/10/2026, com o preco base de US$ 12,90;
+// no Mexico e no Chile o IVA entra por cima). O pais vem do fuso horario do navegador; fora destes 4, fica em dolar.
+(function(){
+  var tz=(Intl.DateTimeFormat().resolvedOptions().timeZone)||"", pais="";
+  if(/^America\/(Mexico_City|Cancun|Merida|Monterrey|Matamoros|Chihuahua|Ciudad_Juarez|Ojinaga|Mazatlan|Bahia_Banderas|Hermosillo|Tijuana)$/.test(tz))pais="MX";
+  else if(tz==="America/Bogota")pais="CO";
+  else if(tz==="America/Lima")pais="PE";
+  else if(/^(America\/(Santiago|Punta_Arenas)|Pacific\/Easter)$/.test(tz))pais="CL";
+  var P={MX:["$292","MXN","IVA incluido. Pago único, en pesos mexicanos."],
+         CO:["$43.170","COP","Pago único, en pesos colombianos."],
+         PE:["S/ 47","","Pago único, en soles."],
+         CL:["$13.272","CLP","IVA incluido. Pago único, en pesos chilenos."]}[pais];
+  if(!P)return;
+  document.getElementById("preco").innerHTML=P[0]+(P[1]?" <small>"+P[1]+"</small>":"");
+  document.getElementById("moeda").textContent=P[2];
+  document.getElementById("preco-fixa").textContent=P[0]+(P[1]?" "+P[1]:"");
 })();
 // contador de 15 minutos (reinicia a cada visita)
 (function(){
